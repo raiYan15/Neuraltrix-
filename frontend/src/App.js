@@ -1,10 +1,10 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "@/components/Header";
+import Header from "@/components/ui/header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import ServicesPage from "@/pages/ServicesPage";
-import ServiceDetail from "@/pages/ServiceDetail";
+import ServicePage from "@/pages/ServicePage";
 import SolutionsPage from "@/pages/SolutionsPage";
 import SolutionDetail from "@/pages/SolutionDetail";
 import CaseStudiesPage from "@/pages/CaseStudiesPage";
@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />

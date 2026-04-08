@@ -4,11 +4,11 @@ import PageHero from "../components/PageHero";
 import CTASection from "../components/CTASection";
 import FAQSection from "../components/FAQSection";
 import PageContactForm from "../components/PageContactForm";
-import services from "../data/services";
+import { findServiceBySlug } from "../data/services";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const service = services.find((s) => s.slug === slug);
+  const service = findServiceBySlug(slug);
 
   if (!service) {
     return (
@@ -25,8 +25,8 @@ export default function ServiceDetail() {
     <div>
       <PageHero
         label="Services"
-        title={service.heroTitle}
-        description={service.heroDesc}
+        title={service.title}
+        description={service.description}
         primaryCTA={{ text: "Get Started", href: "#page-contact" }}
         secondaryCTA={{ text: "View All Services", href: "/services" }}
       />
@@ -45,7 +45,7 @@ export default function ServiceDetail() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-[#0B1B3D] mb-6" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Overview</h2>
-            <p className="text-base text-slate-600 leading-relaxed">{service.overview}</p>
+            <p className="text-base text-slate-600 leading-relaxed">{service.body}</p>
           </div>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function ServiceDetail() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <h2 className="text-3xl font-bold tracking-tight text-[#0B1B3D] mb-12" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>What We Deliver</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.features.map((f, i) => (
+            {[{ title: service.title, desc: service.description }].map((f, i) => (
               <div key={i} data-testid={`feature-${i}`} className="bg-white border border-slate-200 rounded-sm p-8">
                 <CheckCircle2 size={20} className="text-[#2563EB] mb-4" />
                 <h3 className="text-base font-bold text-[#0B1B3D] mb-2" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{f.title}</h3>
@@ -66,14 +66,14 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <CTASection title="Ready to Get Started?" description={`Let's discuss how our ${service.title} services can transform your business operations.`} />
+      <CTASection title="Ready to Get Started?" description={`Let's discuss how our ${service.title} service can transform your business operations.`} />
 
       {/* Process */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <h2 className="text-3xl font-bold tracking-tight text-[#0B1B3D] mb-12" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Our Process</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {service.process.map((p, i) => (
+            {[{ step: "Discovery", desc: "We evaluate your business context and define a tailored implementation strategy." }].map((p, i) => (
               <div key={i} data-testid={`process-step-${i}`} className="relative">
                 <span className="text-5xl font-extrabold text-slate-100 absolute -top-2 -left-1" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
                   {String(i + 1).padStart(2, "0")}
@@ -88,7 +88,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <FAQSection faqs={service.faqs} />
+      <FAQSection faqs={[{ q: "Can this be customized for our workflow?", a: "Yes. We tailor architecture, delivery process, and integrations to your internal systems and goals." }]} />
       <PageContactForm context={service.title} />
     </div>
   );
