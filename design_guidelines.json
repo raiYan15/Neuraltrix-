@@ -1,0 +1,189 @@
+{
+  "theme": "LIGHT",
+  "archetype": "Archetype 4 (Swiss & High-Contrast - Custom Navy & White)",
+  "brand": {
+    "name": "NeuralTrix AI",
+    "description": "An AI based Consulting and AI software development company.",
+    "tone": "Professional, authoritative, cutting-edge, reliable, clean corporate."
+  },
+  "colors": {
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "primary": "#0B1B3D",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#E2E8F0",
+    "secondary_foreground": "#0B1B3D",
+    "accent": "#2563EB",
+    "accent_foreground": "#FFFFFF",
+    "muted": "#F1F5F9",
+    "muted_foreground": "#64748B",
+    "border": "#E2E8F0",
+    "text": {
+      "primary": "#0A0A0A",
+      "secondary": "#475569",
+      "inverse": "#FFFFFF"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk, sans-serif",
+      "weights": ["700", "800", "900"],
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "family": "Satoshi, sans-serif",
+      "weights": ["400", "500", "600"],
+      "tracking": "tracking-normal"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl font-extrabold tracking-tighter text-primary",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-primary",
+      "h3": "text-2xl sm:text-3xl font-bold tracking-tight text-primary",
+      "h4": "text-xl font-semibold text-primary",
+      "body": "text-base text-slate-600 leading-relaxed",
+      "small": "text-sm text-slate-500 uppercase tracking-widest font-semibold"
+    }
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-6 sm:px-8 md:px-12",
+    "section_padding": "py-20 sm:py-24 md:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "border_radius": "rounded-sm",
+    "shadows": {
+      "subtle": "shadow-sm",
+      "hover": "hover:shadow-lg transition-shadow duration-300 ease-out"
+    }
+  },
+  "surface_strategies": {
+    "header": "backdrop-blur-xl bg-white/90 border-b border-slate-200 sticky top-0 z-50",
+    "cards": "bg-white border border-slate-200 rounded-sm p-8 hover:-translate-y-1 transition-all duration-300",
+    "dark_section": "bg-primary text-white",
+    "glass_dark": "backdrop-blur-xl bg-primary/90 border border-white/10"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white hover:bg-primary/90 rounded-sm px-6 py-3 font-semibold transition-colors",
+      "outline": "bg-transparent text-primary border border-primary hover:bg-primary hover:text-white rounded-sm px-6 py-3 font-semibold transition-all"
+    },
+    "libraries": [
+      "lucide-react",
+      "react-icons/si",
+      "react-icons/fa",
+      "framer-motion",
+      "embla-carousel-react"
+    ],
+    "shadcn": [
+      "button",
+      "card",
+      "input",
+      "textarea",
+      "form",
+      "carousel",
+      "accordion"
+    ]
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1762279389083-abf71f22d338?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJsdWUlMjBkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc3NTQ4Mjk1MXww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract lines and graphs with blue hues for Hero side/background"
+      },
+      {
+        "category": "ceo_portrait",
+        "url": "https://images.unsplash.com/photo-1720805752653-10ddccea4c94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBjZW8lMjBwb3J0cmFpdCUyMG1hbiUyMHN1aXR8ZW58MHx8fHwxNzc1NDgyOTUxfDA&ixlib=rb-4.1.0&q=85",
+        "description": "A man in a blue suit sitting in a chair for CEO Letter section"
+      },
+      {
+        "category": "team_collaboration",
+        "url": "https://images.unsplash.com/photo-1758876203420-1ed6db481d4f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya2luZ3xlbnwwfHx8fDE3NzU0ODI5MjZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Two colleagues collaborating at a desk for About or Why Choose Us section"
+      },
+      {
+        "category": "data_center",
+        "url": "https://images.pexels.com/photos/5092815/pexels-photo-5092815.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Modern data center for Tech Stack or Infrastructure section background"
+      },
+      {
+        "category": "abstract_tech",
+        "url": "https://images.unsplash.com/photo-1768916321622-6418c1af5de5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGJsdWUlMjBkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc3NTQ4Mjk1MXww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract blue wavy lines for Solutions or CTA background"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "name": "Header",
+      "style": "Sticky top-0 with glassmorphism. Left: NeuralTrix AI Logo (text-based large bold). Right: Navigation links and primary CTA 'Talk to AI Experts'."
+    },
+    {
+      "name": "Hero",
+      "style": "Navy Blue Background (#0B1B3D) full width. White text. Left side: Massive H1 'Engineering the AI-First Enterprise', subtext, and two buttons. Right side: Abstract data analytics image (hero_background) partially masked or floating above the background."
+    },
+    {
+      "name": "CEO Letter / About",
+      "style": "Split layout. Left: ceo_portrait image. Right: 'Welcome to the AI-First Age', open letter text, large quotation mark icon, signature in cursive font."
+    },
+    {
+      "name": "Services Overview",
+      "style": "Grid layout (grid-cols-1 md:grid-cols-4). Cards with 1px border. Use lucide-react icons for each service (AI Development, Gen AI, Custom Software, Mobile Apps, AI Agents, LLM Development, DevOps, Data Engineering). Hover effect: background turns Navy, text turns white."
+    },
+    {
+      "name": "Solutions / Products Showcase",
+      "style": "Zig-zag layout (alternating image and text blocks). Showcase product concepts like DataBrain AI, MediMind AI, etc. Use abstract_tech and team_collaboration images."
+    },
+    {
+      "name": "Case Studies / Portfolio",
+      "style": "Bento grid with Navy Blue cards and white text, highlighting industry, problem, and AI solution. Minimalist typography focus."
+    },
+    {
+      "name": "Tech Stack & Partners",
+      "style": "Dark section (Navy) with a highly structured grid of tech icons. IMPORTANT: Use react-icons/si (e.g., SiPython, SiReact, SiAmazonaws, SiOpenai) for the tech stack to avoid broken image links."
+    },
+    {
+      "name": "Stats / Metrics Counters",
+      "style": "Control Room Grid. 4 columns. Massive numbers (e.g., '10x', '99.9%', '150+') with small overline text. Minimalist, monochrome Navy/White."
+    },
+    {
+      "name": "Industries Served",
+      "style": "Clean list or grid with large headings (Retail, Healthcare, Fintech, Education, BFSI, Sports & Gaming, Real Estate) and thin bottom borders separating them. Swiss brutalist approach."
+    },
+    {
+      "name": "Why Choose Us",
+      "style": "Split layout. Left: Title and subtitle. Right: Accordion or stacked list of points (Hallucination Control, Compliance-First) with checkmark icons."
+    },
+    {
+      "name": "Testimonials",
+      "style": "Shadcn Carousel. Large cards, 1px border, subtle shadow. Author name and title in bold. Very clean."
+    },
+    {
+      "name": "Blog / Resources",
+      "style": "3-column grid. Clean article cards with uppercase category labels, bold titles, and 'Read More' links."
+    },
+    {
+      "name": "Contact Form",
+      "style": "Split layout. Left side: Navy background with white text, contact info. Right side: White background, clean Shadcn input forms (First Name, Last Name, Email, Project Description), primary CTA."
+    },
+    {
+      "name": "Footer",
+      "style": "Navy background, massive padding (py-24). Multi-column link structure, large 'NeuralTrix AI' logo at the bottom."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Strict APCA/WCAG AA compliance. Navy/White contrast is extremely high.",
+    "motion": "Respect prefers-reduced-motion. Use framer-motion for smooth, professional fade-ins, but keep it corporate and subtle.",
+    "testing": "Add data-testid to all buttons, inputs, links, and forms."
+  },
+  "instructions_to_main_agent": [
+    "Install required font families (Cabinet Grotesk, Satoshi) via Google Fonts or Fontshare CDN in index.html.",
+    "Do NOT use placeholder image URLs like via.placeholder.com. ONLY use the provided Unsplash URLs in the media section.",
+    "Use react-icons/si for the entire Tech Stack section. Map the required tech (Python, Node.js, AWS, OpenAI, React, PostgreSQL) to Si-prefixed components from react-icons/si.",
+    "Build the Hero section with a dark Navy background, and ensure the abstract image is seamlessly integrated without looking like a boxed-in asset (use mix-blend modes or absolute positioning).",
+    "Keep borders to 1px and border-radius to rounded-sm (2px or 4px max) to maintain the strict corporate/Swiss aesthetic.",
+    "Do not use gradients. Stick to solid Navy (#0B1B3D), solid White (#FFFFFF), and solid Slate for borders.",
+    "Use framer-motion for simple 'fade-in-up' entrance animations on scroll for the grid items."
+  ]
+}
