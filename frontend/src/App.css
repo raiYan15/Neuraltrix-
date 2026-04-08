@@ -1,0 +1,9 @@
+/* NeuralTrix AI - Corporate Styles */
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #2563EB;
+  color: white;
+}
