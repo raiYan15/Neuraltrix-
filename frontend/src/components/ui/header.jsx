@@ -2,13 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Building2, Briefcase, FileText, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { servicesSections } from "@/data/servicesData";
@@ -162,26 +155,24 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-30 pt-3" data-testid="header">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative flex h-20 items-center justify-between rounded-[1.75rem] border border-white/60 bg-[#D5EAF2]/90 px-4 shadow-[0_6px_20px_rgba(15,23,42,0.08)] backdrop-blur-md sm:px-5 md:px-6">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="relative" ref={menuRef}>
+          <div className="flex h-20 items-center justify-between rounded-[1.75rem] border border-white/60 bg-[#D5EAF2]/90 px-4 shadow-[0_6px_20px_rgba(15,23,42,0.08)] backdrop-blur-md sm:px-5 md:px-6">
           <div className="flex min-w-0 items-center gap-6">
-            <Link to="/" className="shrink-0" data-testid="header-logo">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-[#0B1B3D] text-lg font-bold text-white">
-                N
-              </span>
+            <Link to="/" className="flex items-center shrink-0" data-testid="header-logo" aria-label="NeuralTrix AI Home">
+              <div className="h-9 w-9 overflow-hidden rounded-full border border-white/20 shadow-md sm:h-10 sm:w-10">
+                <img
+                  src="/logo.png"
+                  alt="NeuralTrix AI Logo"
+                  className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
+                />
+              </div>
             </Link>
 
-            <nav className="hidden items-center lg:flex" ref={menuRef}>
-              <div className="flex items-center gap-6">
-              <NavigationMenu
-                withViewport={false}
-                value={menuValue}
-                onValueChange={setMenuValue}
-                className="static z-40 flex-none max-w-none"
-              >
-                <NavigationMenuList className="space-x-0">
-                  <NavigationMenuItem value="services" className="static">
-                <NavigationMenuTrigger
+            <nav className="hidden items-center lg:flex">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
                   onClick={() => setMenuValue((prev) => (prev === "services" ? "" : "services"))}
                   className={cn(
                     "h-auto rounded-full px-4 py-2.5 text-sm font-semibold transition-all",
@@ -191,70 +182,10 @@ export default function Header() {
                   )}
                 >
                   Services
-                </NavigationMenuTrigger>
+                </button>
 
-                <NavigationMenuContent className="absolute left-0 right-0 top-full z-50 mt-3 flex justify-center px-2 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out">
-                  <div className="animate-in zoom-in-95 fade-in duration-200">
-                    <div className="h-[360px] w-[1000px] max-w-[95vw] overflow-hidden rounded-xl border border-slate-700/60 bg-[#0F172A]/95 px-4 py-5 text-slate-100 shadow-2xl backdrop-blur-xl">
-                      <div className="relative h-full">
-                        <div
-                          ref={servicesScrollRef}
-                          onScroll={syncThumbFromScroll}
-                          className="h-full overflow-y-scroll pr-4 scroll-smooth shadow-inner [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                        >
-                          <div className="ml-0 grid min-h-[500px] grid-cols-4 gap-6 pl-0">
-                            {servicesSections.map((section, index) => (
-                              <div
-                                key={section.title}
-                                className={cn(
-                                  "flex flex-col items-start gap-3",
-                                  index !== servicesSections.length - 1 && "border-r border-slate-700/70 pr-3"
-                                )}
-                              >
-                                <h3 className="text-lg font-semibold text-sky-400">{section.title}</h3>
-
-                                <div className="flex flex-col gap-3">
-                                  {section.items.map((item) => (
-                                    <button
-                                      key={item}
-                                      type="button"
-                                      onClick={() => handleServiceNavigate(slugify(item))}
-                                      className="text-left text-[15px] leading-7 text-slate-200 transition hover:text-sky-300 md:text-base"
-                                    >
-                                      {item}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="absolute right-1 top-0 h-full w-[8px]">
-                          <div
-                            ref={servicesTrackRef}
-                            className="bg-white/20 h-full rounded-full relative"
-                            onMouseDown={handleTrackMouseDown}
-                          >
-                            <div
-                              className="absolute w-full bg-white/70 rounded-full cursor-pointer transition hover:bg-white"
-                              style={{
-                                height: `${thumbHeight}%`,
-                                top: `${thumbTop}%`,
-                                display: showThumb ? "block" : "none",
-                              }}
-                              onMouseDown={handleDragStart}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem value="company" className="static">
-                <NavigationMenuTrigger
+                <button
+                  type="button"
                   onClick={() => setMenuValue((prev) => (prev === "company" ? "" : "company"))}
                   className={cn(
                     "h-auto rounded-full px-4 py-2.5 text-sm font-semibold transition-all",
@@ -264,51 +195,8 @@ export default function Header() {
                   )}
                 >
                   Company
-                </NavigationMenuTrigger>
+                </button>
 
-                <NavigationMenuContent className="absolute left-0 right-0 top-full z-50 mt-3 flex justify-center px-2 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out">
-                  <div className="animate-in zoom-in-95 fade-in duration-200">
-                    <div className="h-[420px] w-[900px] max-w-[95vw] overflow-hidden rounded-xl border border-slate-700/60 bg-[#0F172A]/95 p-6 text-slate-100 shadow-2xl backdrop-blur-xl">
-                      <div className="flex h-full flex-col">
-                        <h3 className="sticky top-0 z-10 mb-4 bg-[#0F172A]/95 py-1 text-sm font-semibold text-slate-100 backdrop-blur-sm">
-                          Company
-                        </h3>
-                        <div
-                          ref={companyScrollRef}
-                          className="overflow-y-auto pr-2 scroll-smooth [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-500/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5"
-                        >
-                          <div className="grid grid-cols-1 gap-x-6 gap-y-4 md:grid-cols-2">
-                            {companyItems.map((item) => {
-                              const Icon = item.icon;
-
-                              return (
-                                <button
-                                  key={item.title}
-                                  type="button"
-                                  onClick={() => handleLinkNavigate(item.href)}
-                                  className="flex items-start gap-3 rounded-lg p-2 text-left transition cursor-pointer hover:bg-slate-800/80"
-                                >
-                                  <div className="size-10 shrink-0 flex items-center justify-center rounded-md border border-slate-600 bg-slate-900/70">
-                                    <Icon className="size-5 text-slate-200" />
-                                  </div>
-                                  <div className="flex flex-col">
-                                    <p className="text-sm font-medium leading-none text-slate-100">{item.title}</p>
-                                    <p className="mt-1 text-xs leading-snug text-slate-400">{item.description}</p>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-
-              <div className="flex items-center gap-6">
                 {navItems.map((item) => {
                   const active = location.pathname.startsWith(item.href);
                   return (
@@ -325,8 +213,7 @@ export default function Header() {
                   );
                 })}
               </div>
-            </div>
-          </nav>
+            </nav>
           </div>
 
           <div className="flex items-center gap-3">
@@ -384,6 +271,103 @@ export default function Header() {
             </SheetContent>
           </Sheet>
         </div>
+          </div>
+
+        {menuValue && (
+          <div className="absolute left-0 right-0 top-full z-50 hidden w-full pt-3 lg:block">
+            <div className="w-full overflow-hidden rounded-xl border border-slate-700/60 bg-[#0F172A]/95 shadow-2xl backdrop-blur-xl">
+              {menuValue === "services" ? (
+                <div className="relative h-[360px] px-3 py-5 text-slate-100">
+                  <div
+                    ref={servicesScrollRef}
+                    onScroll={syncThumbFromScroll}
+                    className="h-full overflow-y-scroll pr-5 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                  >
+                    <div className="grid min-h-[500px] grid-cols-4 gap-8 items-start">
+                      {servicesSections.map((section, index) => (
+                        <div
+                          key={section.title}
+                          className={cn(
+                            "flex flex-col items-start gap-3",
+                            index !== servicesSections.length - 1 && "border-r border-slate-700/70 pr-4"
+                          )}
+                        >
+                          <h3 className="text-lg font-semibold text-sky-400">{section.title}</h3>
+
+                          <div className="flex flex-col gap-3">
+                            {section.items.map((item) => (
+                              <button
+                                key={item}
+                                type="button"
+                                onClick={() => handleServiceNavigate(slugify(item))}
+                                className="text-left text-[15px] leading-7 text-slate-200 transition hover:text-sky-300 md:text-base"
+                              >
+                                {item}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="absolute right-1 top-5 h-[calc(100%-2.5rem)] w-[8px]">
+                    <div
+                      ref={servicesTrackRef}
+                      className="relative h-full rounded-full bg-white/20"
+                      onMouseDown={handleTrackMouseDown}
+                    >
+                      <div
+                        className="absolute w-full cursor-pointer rounded-full bg-white/70 transition hover:bg-white"
+                        style={{
+                          height: `${thumbHeight}%`,
+                          top: `${thumbTop}%`,
+                          display: showThumb ? "block" : "none",
+                        }}
+                        onMouseDown={handleDragStart}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="h-[420px] p-6 text-slate-100">
+                  <div className="flex h-full flex-col">
+                    <h3 className="sticky top-0 z-10 mb-4 bg-[#0F172A]/95 py-1 text-sm font-semibold text-slate-100 backdrop-blur-sm">
+                      Company
+                    </h3>
+                    <div
+                      ref={companyScrollRef}
+                      className="overflow-y-auto pr-2 scroll-smooth [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-500/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5"
+                    >
+                      <div className="grid grid-cols-1 gap-6 items-start md:grid-cols-2">
+                        {companyItems.map((item) => {
+                          const Icon = item.icon;
+
+                          return (
+                            <button
+                              key={item.title}
+                              type="button"
+                              onClick={() => handleLinkNavigate(item.href)}
+                              className="flex items-start gap-3 rounded-lg p-2 text-left transition hover:bg-slate-800/80"
+                            >
+                              <div className="grid size-10 shrink-0 place-items-center rounded-md border border-slate-600 bg-slate-900/70">
+                                <Icon className="size-5 text-slate-200" />
+                              </div>
+                              <div className="flex flex-col">
+                                <p className="text-sm font-medium leading-none text-slate-100">{item.title}</p>
+                                <p className="mt-1 text-xs leading-snug text-slate-400">{item.description}</p>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
         </div>
       </div>
     </header>

@@ -1,4 +1,5 @@
 import HeroSection from "../components/HeroSection";
+import TrustedCompanies from "../components/TrustedCompanies";
 import CEOLetter from "../components/CEOLetter";
 import ServicesSection from "../components/ServicesSection";
 import SolutionsSection from "../components/SolutionsSection";
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TrustedCompanies />
       <CEOLetter />
       <ServicesSection />
       <SolutionsSection />
