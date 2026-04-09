@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const NavigationMenu = React.forwardRef(({ className, children, ...props }, ref) => (
+const NavigationMenu = React.forwardRef(({ className, children, withViewport = true, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
@@ -14,7 +14,7 @@ const NavigationMenu = React.forwardRef(({ className, children, ...props }, ref)
     )}
     {...props}>
     {children}
-    <NavigationMenuViewport />
+    {withViewport ? <NavigationMenuViewport /> : null}
   </NavigationMenuPrimitive.Root>
 ))
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName

@@ -1,0 +1,12 @@
+<svg width="800" height="300" viewBox="0 0 800 300" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="800" y2="300" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1E3A8A"/>
+            <stop offset="1" stop-color="#06B6D4"/>
+        </linearGradient>
+    </defs>
+    <rect width="800" height="300" fill="url(#g1)"/>
+    <circle cx="620" cy="120" r="90" fill="#FFFFFF22"/>
+    <text x="40" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="54" font-weight="700">Artificial Intelligence</text>
+</svg>
